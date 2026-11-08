@@ -358,7 +358,367 @@
               </h3>
               <span class="text-xs text-slate-500">Chat with news giver or verify &amp; publish</span>
             </div>
-            <div id="internalPendingListContainer" class="space-y-4"></div>
+            <div id="internalPendingListContainer" class="space-y-3"></di<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TruthEdge Today — 24x7 Trending News Wire</title>
+
+  <meta name="description" content="TruthEdge Today: Live trending news in English, Malayalam, and Hindi across Kerala, India, Middle East, World, Local updates, and Feel-Good stories." />
+  <meta name="keywords" content="TruthEdge Today, Kerala News, Malayalam News, Hindi News, Thiruvananthapuram local news, Kochi Metro Pink Line, Kalpathy Ratholsavam, India news today, Middle East news live, World news today, Google Trends news today" />
+  <meta name="robots" content="index, follow" />
+
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8fafc;
+      color: #0f172a;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+    body.dark-theme {
+      background-color: #090d16;
+      color: #f1f5f9;
+    }
+    body.dark-theme .surface-card {
+      background-color: #111827 !important;
+      border-color: #1f2937 !important;
+      color: #f1f5f9 !important;
+    }
+    body.dark-theme .surface-sub {
+      background-color: #1e293b !important;
+      border-color: #334155 !important;
+      color: #e2e8f0 !important;
+    }
+    body.dark-theme .text-Dynamic {
+      color: #f8fafc !important;
+    }
+    body.dark-theme .text-SubDynamic {
+      color: #94a3b8 !important;
+    }
+    .font-serif-headline {
+      font-family: 'Merriweather', Georgia, serif;
+    }
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .ticker-track {
+      display: flex;
+      width: max-content;
+      animation: ticker 36s linear infinite;
+    }
+    .ticker-track:hover {
+      animation-play-state: paused;
+    }
+    @keyframes subtleFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-2px); }
+    }
+    .news-card-animated {
+      animation: subtleFloat 6s ease-in-out infinite;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .news-card-animated:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 22px -8px rgba(15, 23, 42, 0.14);
+    }
+    @keyframes slideFadeIn {
+      0% { opacity: 0; transform: translateX(16px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+    .spotlight-slide {
+      animation: slideFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes loadingPulse {
+      0% { width: 0%; opacity: 1; }
+      70% { width: 85%; opacity: 1; }
+      100% { width: 100%; opacity: 0; }
+    }
+    .minimal-loader-active {
+      animation: loadingPulse 0.55s ease-out forwards;
+    }
+    /* Animated Color-Shifting & Shimmering Ad Styles */
+    @keyframes adColorShift {
+      0% { background-position: 0% 50%; border-color: #f59e0b; }
+      50% { background-position: 100% 50%; border-color: #ec4899; }
+      100% { background-position: 0% 50%; border-color: #3b82f6; }
+    }
+    .animated-ad-banner {
+      background: linear-gradient(270deg, #fffbeb, #fdf2f8, #eff6ff, #ecfdf5);
+      background-size: 300% 300%;
+      animation: adColorShift 8s ease infinite;
+      transition: transform 0.3s ease;
+    }
+    body.dark-theme .animated-ad-banner {
+      background: linear-gradient(270deg, #1e1b4b, #31102f, #172554, #064e3b);
+      background-size: 300% 300%;
+      animation: adColorShift 8s ease infinite;
+    }
+    .modal-backdrop {
+      background-color: rgba(15, 23, 42, 0.78);
+      backdrop-filter: blur(4px);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col bg-slate-50 text-slate-900">
+
+  <!-- Minimal Top Loading Bar -->
+  <div class="fixed top-0 left-0 right-0 h-1 z-50 pointer-events-none overflow-hidden">
+    <div id="minimalLoadingBar" class="h-full bg-gradient-to-r from-red-600 via-amber-400 to-emerald-500 w-0"></div>
+  </div>
+
+  <!-- Hidden SEO Keywords -->
+  <div class="sr-only" aria-hidden="true">
+    TruthEdge Today Online News Channel. Google Trends Top News Today Kerala Breaking News Malayalam News Hindi News Thiruvananthapuram Kochi Kozhikode Kottayam Thrissur Palakkad Kannur India National News Middle East News World News Feel Good Stories.
+  </div>
+
+  <!-- Morale & Points Toast Notification -->
+  <div id="toastContainer" class="fixed bottom-5 right-5 z-50 hidden transition-all duration-300 max-w-sm">
+    <div class="bg-slate-900 text-white px-4 py-3 rounded-xl shadow-2xl border border-emerald-500/60 flex items-start gap-2.5 text-xs font-medium">
+      <span id="toastIcon" class="text-base shrink-0">🌟</span>
+      <div>
+        <div id="toastTitle" class="font-extrabold text-emerald-400 text-[11px] uppercase tracking-wider">You Are a Great Leader!</div>
+        <div id="toastMessage" class="text-xs text-white mt-0.5">Action completed!</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Top Breaking Pop-Up Notification Banner -->
+  <aside id="topNewsAlertBar" class="bg-gradient-to-r from-red-600 to-rose-700 text-white px-4 py-2 shadow-md hidden" aria-label="Breaking News Alert">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-3 text-xs">
+      <div class="flex items-center gap-2 overflow-hidden">
+        <span class="bg-white text-red-700 font-extrabold uppercase px-2 py-0.5 rounded text-[10px] tracking-wider shrink-0 animate-pulse">JUST PUBLISHED</span>
+        <span id="topNewsAlertText" class="font-semibold truncate">New trending story published!</span>
+      </div>
+      <div class="flex items-center gap-2 shrink-0">
+        <button type="button" id="jumpToNewStoryBtn" class="bg-red-800 hover:bg-red-900 px-2.5 py-0.5 rounded text-[11px] font-bold transition">View ↓</button>
+        <button type="button" id="dismissAlertBtn" class="text-white/80 hover:text-white p-1 text-sm font-bold leading-none">&times;</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- TOP SCROLLING TICKER: Trending News from Our Website, Google Trends & Global Apps -->
+  <div class="bg-slate-950 text-white text-xs border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 py-2 flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2 overflow-hidden flex-1 min-w-0">
+        <span class="bg-red-600 text-white font-bold uppercase tracking-wider px-2 py-0.5 rounded text-[10px] shrink-0">🔥 TRENDING</span>
+        <div class="overflow-hidden whitespace-nowrap w-full">
+          <div class="ticker-track" id="liveTickerTrack"></div>
+        </div>
+      </div>
+
+      <!-- Country-Aware Live Clock, Language Selector, Member Tier & Reader Controls -->
+      <div class="flex flex-wrap items-center gap-1.5 shrink-0 text-[11px]">
+        <!-- Country-Adapted Live Date & Time Indicator -->
+        <span id="liveUserClockBadge" class="bg-slate-900 border border-slate-700 text-emerald-300 px-2 py-0.5 rounded-full font-mono text-[10px]" title="Automatically adjusted to your local country time">
+          🕒 Loading Local Time...
+        </span>
+
+        <!-- Working News & Page Language Switcher (English / മലയാളം / हिन्दी) -->
+        <div class="inline-flex items-center bg-slate-900 border border-slate-700 rounded-full p-0.5" role="group" aria-label="Language Selector">
+          <button type="button" data-lang="en" class="lang-switch-btn px-2 py-0.5 rounded-full text-[10px] font-bold bg-red-600 text-white transition">EN</button>
+          <button type="button" data-lang="ml" class="lang-switch-btn px-2 py-0.5 rounded-full text-[10px] font-bold text-slate-300 hover:text-white transition">മലയാളം</button>
+          <button type="button" data-lang="hi" class="lang-switch-btn px-2 py-0.5 rounded-full text-[10px] font-bold text-slate-300 hover:text-white transition">हिन्दी</button>
+        </div>
+
+        <!-- Guest / Silver / Golden / Diamond Member Button -->
+        <button
+          type="button"
+          id="optionalReaderSignInBtn"
+          class="inline-flex items-center gap-1 bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 px-2.5 py-0.5 rounded-full font-semibold transition"
+        >
+          <span id="readerSignInStatusText">👤 Guest (Join Silver/Gold)</span>
+        </button>
+
+        <button
+          type="button"
+          id="openPointsModalBtn"
+          class="inline-flex items-center gap-1 bg-amber-500/20 border border-amber-400/50 text-amber-300 px-2 py-0.5 rounded-full font-bold hover:bg-amber-500/30 transition"
+        >
+          <span>🏆</span>
+          <span id="userGradeLabel">Grade A</span>
+          <span class="bg-amber-400 text-slate-950 px-1.5 rounded-full text-[10px] font-black"><span id="userPointsDisplay">120</span></span>
+        </button>
+
+        <button
+          type="button"
+          id="toggleSoundBtn"
+          class="bg-slate-900 hover:bg-slate-800 border border-slate-700 px-2 py-0.5 rounded-full text-slate-200 font-medium transition"
+        >
+          🔊 Sound: ON
+        </button>
+
+        <div class="inline-flex items-center bg-slate-900 border border-slate-700 rounded-full overflow-hidden">
+          <button type="button" id="fontDecreaseBtn" class="px-1.5 py-0.5 hover:bg-slate-800 text-slate-300 font-bold" title="Smaller Text">A-</button>
+          <button type="button" id="fontIncreaseBtn" class="px-1.5 py-0.5 hover:bg-slate-800 text-slate-300 font-bold border-l border-slate-700" title="Larger Text">A+</button>
+        </div>
+
+        <button
+          type="button"
+          id="toggleThemeBtn"
+          class="bg-slate-900 hover:bg-slate-800 border border-slate-700 px-2 py-0.5 rounded-full text-slate-200 font-medium transition"
+        >
+          🌙 Dark
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reading Leadership Meter & Morale Booster Bar -->
+  <div class="bg-gradient-to-r from-emerald-950 via-slate-900 to-indigo-950 text-white border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 py-1.5 flex flex-wrap items-center justify-between gap-2 text-xs">
+      <div class="flex items-center gap-2">
+        <span class="bg-emerald-500 text-slate-950 font-black px-2 py-0.5 rounded text-[10px] uppercase">Leadership Meter</span>
+        <span id="leadershipMoraleText" class="font-semibold text-emerald-200 text-[11px] sm:text-xs">
+          🌟 You are a great leader! Reading verified news daily builds wisdom and stronger communities.
+        </span>
+      </div>
+      <div class="flex items-center gap-2.5">
+        <span class="text-[11px] text-slate-300">Read: <strong id="storiesReadCounter" class="text-white">3</strong> Stories</span>
+        <div class="w-20 h-1.5 bg-slate-800 rounded-full overflow-hidden border border-slate-700">
+          <div id="readingMeterFill" class="h-full bg-emerald-400 transition-all duration-500" style="width: 35%;"></div>
+        </div>
+        <span id="leadershipRankPill" class="bg-indigo-500/30 border border-indigo-400/50 text-indigo-200 px-2 py-0.5 rounded-full text-[10px] font-bold">
+          Great Leader
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Masthead Header -->
+  <header class="surface-card bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 py-3">
+      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2.5">
+            <div class="bg-red-600 text-white font-black px-2.5 py-1 rounded-lg text-xs tracking-wider uppercase shadow-sm">
+              TET
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <h1 class="font-serif-headline text-xl sm:text-2xl font-black tracking-tight text-Dynamic text-slate-900" id="uiSiteMainTitle">TruthEdge Today</h1>
+                <span class="bg-red-100 text-red-700 text-[10px] font-extrabold uppercase px-1.5 py-0.5 rounded" id="uiLiveBadge">Live Wire</span>
+              </div>
+              <p class="text-[11px] text-SubDynamic text-slate-500 font-medium" id="uiSiteSubtitle">World • Middle East • India • Kerala • Local • Feel-Good</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation & Action Buttons -->
+        <nav class="flex flex-wrap items-center gap-1.5" aria-label="Main Navigation">
+          <button type="button" id="navFeedBtn" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-900 text-white transition">
+            News Feed
+          </button>
+          <button type="button" id="navTrendingQuickBtn" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
+            🔥 Trending
+          </button>
+          <button type="button" id="navJumpSubmitBottomBtn" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-red-600 text-white hover:bg-red-700 transition">
+            Submit News ↓
+          </button>
+          <button type="button" id="navSubmitAdModalBtn" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-amber-600 text-white hover:bg-amber-700 transition">
+            📢 Give Ad
+          </button>
+          <button type="button" id="navContributorChatBtn" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-sky-600 text-white hover:bg-sky-700 transition">
+            💬 Chat (<span id="publicChatCountBadge">2</span>)
+          </button>
+          <button type="button" id="navComplaintModalBtn" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-rose-600 text-white hover:bg-rose-700 transition">
+            🚩 Complaint
+          </button>
+          <button type="button" id="navContactCeoBtn" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-indigo-600 text-white hover:bg-indigo-700 transition">
+            💼 Contact CEO
+          </button>
+          <button type="button" id="navEthicsReviewBtn" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-emerald-600 text-white hover:bg-emerald-700 transition">
+            ⭐ Reviews (<span id="headerEthicsCount">124</span>)
+          </button>
+          <button type="button" id="navJournalistModalBtn" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
+            Journalist Reg.
+          </button>
+          <button type="button" id="headerShareSiteBtn" class="px-2 py-1 rounded text-[10px] font-bold bg-slate-200 text-slate-700 hover:bg-slate-300 transition" title="Share Website">
+            📤 Share
+          </button>
+          <button type="button" id="unlockedAdminDeskBtn" class="hidden px-2.5 py-1 rounded-lg text-xs font-bold bg-amber-500 text-slate-950 shadow transition">
+            Admin Desk (<span id="unlockedPendingCount">0</span>)
+          </button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Layout -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 py-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+      <!-- LEFT COLUMN: Spotlight Carousel, News Feed & Management Desk (cols 1 to 8) -->
+      <div class="lg:col-span-8 space-y-6">
+
+        <!-- INTERNAL MANAGEMENT DESK (Zero connection to personal email ID, phone number, or personal accounts) -->
+        <section id="viewAdminInternalDesk" class="hidden surface-card bg-white rounded-2xl border-2 border-amber-400 p-6 shadow-xl space-y-6">
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-b border-slate-200 pb-4">
+            <div>
+              <span class="bg-amber-600 text-white text-[10px] font-bold uppercase px-2 py-0.5 rounded">Protected Admin Panel</span>
+              <h2 class="text-xl sm:text-2xl font-bold text-Dynamic text-slate-900 mt-1">Channel Management, Verification &amp; Chat Desk</h2>
+              <p class="text-xs text-SubDynamic text-slate-600">100% standalone &amp; anonymous. Zero personal email IDs or phone numbers exist anywhere in this site.</p>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <button type="button" id="copyFullWebsiteHtmlBtn" class="px-3 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs rounded-lg shadow transition">
+                📋 Copy Website HTML for Google Sites
+              </button>
+              <button type="button" id="triggerDailyAutoEditionBtn" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-lg shadow transition">
+                ⚡ Auto-Publish Daily 12 Trending Stories
+              </button>
+              <button type="button" id="exitAdminDeskBtn" class="px-3 py-1.5 bg-slate-200 hover:bg-slate-300 text-slate-800 font-semibold text-xs rounded-lg transition">
+                Close Desk
+              </button>
+            </div>
+          </div>
+
+          <!-- 1. Analytics & Growth Scorecard -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="surface-sub p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+              <span class="text-[11px] font-medium text-slate-500 block">Today's Reach</span>
+              <span class="text-lg font-bold text-Dynamic text-slate-900" id="statPageViews">72,180</span>
+              <span class="text-[10px] text-emerald-600 font-bold block mt-0.5">▲ +44.2% Growth</span>
+            </div>
+            <div class="surface-sub p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+              <span class="text-[11px] font-medium text-slate-500 block">Published News</span>
+              <span class="text-lg font-bold text-Dynamic text-slate-900" id="statTotalStories">12</span>
+              <span class="text-[10px] text-emerald-600 font-bold block mt-0.5">EN • മലയാളം • हिन्दी</span>
+            </div>
+            <div class="surface-sub p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+              <span class="text-[11px] font-medium text-slate-500 block">Pending News &amp; Ads</span>
+              <span class="text-lg font-bold text-amber-600" id="statPendingQueue">2</span>
+              <span class="text-[10px] text-amber-700 block mt-0.5">With 2-Way Chat</span>
+            </div>
+            <div class="surface-sub p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+              <span class="text-[11px] font-medium text-slate-500 block">Complaints Logged</span>
+              <span class="text-lg font-bold text-rose-600" id="statComplaintsCount">1</span>
+              <span class="text-[10px] text-rose-700 font-bold block mt-0.5">Fact-Check Desk</span>
+            </div>
+          </div>
+
+          <!-- 2. Public Fake News & Complaint Registration Log -->
+          <div class="bg-rose-50/90 border border-rose-200 rounded-xl p-4 space-y-2.5 text-slate-900">
+            <div class="flex items-center justify-between">
+              <h3 class="font-bold text-xs sm:text-sm text-rose-950">🚩 Public Complaints &amp; Fake News Reports</h3>
+              <span class="text-[11px] text-rose-700 font-semibold" id="adminComplaintsBadge">1 Active Report</span>
+            </div>
+            <div id="adminComplaintsList" class="space-y-2"></div>
+          </div>
+
+          <!-- 3. Pending News Submissions & Admin ↔ News Giver Two-Way Messaging -->
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <h3 class="font-bold text-sm text-Dynamic text-slate-900">
+                Pending News Submissions &amp; Contributor Chat (<span id="internalPendingBadge">0</span>)
+              </h3>
+              <span class="text-xs text-slate-500">Chat with news giver or verify &amp; publish</span>
+            </div>
+            <div id="internalPendingListContainer" class="space-y-3"></div>
           </div>
 
           <!-- 4. Advertisement Management -->
